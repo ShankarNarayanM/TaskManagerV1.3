@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="shadow-lg border border-warning rounded-3 p-3 position-absolute top-50 start-50 translate-middle" style="min-width: 23%;min-height:40%">
+        {% include "includes/errors.html" %}
+        <h1 class="text-center mb-5" style="font-family:Verdana;">Sign In</h1>
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                <input class="form-control mb-4" name="username" value="{{form.username.value|default:''}}" type="text" placeholder="Username" />
+                <input class="form-control mb-4" name="password" type="password" placeholder="Password" />
+                <div class="d-grid gap-2 col-4 mx-auto">
+                    <button class="btn btn-success" type="submit">Log in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

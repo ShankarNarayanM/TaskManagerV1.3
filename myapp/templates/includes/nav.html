@@ -1,0 +1,15 @@
+<nav class="navbar">
+    <a class="navbar-brand" href="{% url "app:landingPage" %}">Home</a>
+    <div class="nav">
+        <a href="{% url "app:pricingPage" %}" class="nav-link">Pricing</a>
+        <a href="{% url "app:contactPage" %}" class="nav-link">Contact</a>
+        
+        {% if user.is_authenticated %}
+        <a href="{% url "app:dashboardPage" %}" class="nav-link">Dashboard</a>
+        <a href="{% url "app:logoutPage" %}" class="nav-link">Logout</a>
+        {% else %}
+        <a href="{% url "app:registerPage" %}" class="nav-link">Register</a>
+        <a href="{% url "app:loginPage" %}" class="nav-link">Login</a>
+        {% endif %}
+    </div>
+</nav>
